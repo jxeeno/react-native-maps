@@ -39,7 +39,7 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
   private static final int SET_MAP_BOUNDARIES = 8;
   private static final int ANIMATE_TO_NAVIGATION = 9; 
   private static final int SET_INDOOR_ACTIVE_LEVEL_INDEX = 10;
-
+  private static final int SET_MAP_PADDING = 11;
 
   private final Map<String, Integer> MAP_TYPES = MapBuilder.of(
       "standard", GoogleMap.MAP_TYPE_NORMAL,
@@ -317,6 +317,10 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
 
       case SET_INDOOR_ACTIVE_LEVEL_INDEX:
         view.setIndoorActiveLevelIndex(args.getInt(0));
+        break;
+        
+      case SET_MAP_PADDING:
+        this.setMapPadding(view, args.getMap(0));
         break;
     }
   }
