@@ -405,7 +405,8 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
 
     map.putAll(MapBuilder.of(
       "setMapBoundaries", SET_MAP_BOUNDARIES,
-      "setIndoorActiveLevelIndex", SET_INDOOR_ACTIVE_LEVEL_INDEX
+      "setIndoorActiveLevelIndex", SET_INDOOR_ACTIVE_LEVEL_INDEX,
+      "setMapPadding", SET_MAP_PADDING
     ));
 
     return map;
