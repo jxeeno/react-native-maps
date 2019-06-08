@@ -351,7 +351,32 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
         break;
         
       case SET_MAP_PADDING:
-        this.setMapPadding(view, args.getMap(0));
+        region = args.getMap(0);
+        int left = 0;
+        int top = 0;
+        int right = 0;
+        int bottom = 0;
+        double density = (double) view.getResources().getDisplayMetrics().density;
+
+        if (region != null) {
+          if (region.hasKey("left")) {
+            left = (int) (region.getDouble("left") * density);
+          }
+
+          if (region.hasKey("top")) {
+            top = (int) (region.getDouble("top") * density);
+          }
+
+          if (region.hasKey("right")) {
+            right = (int) (region.getDouble("right") * density);
+          }
+
+          if (region.hasKey("bottom")) {
+            bottom = (int) (region.getDouble("bottom") * density);
+          }
+        }
+
+        view.map.setPadding(left, top, right, bottom);
         break;
     }
   }
