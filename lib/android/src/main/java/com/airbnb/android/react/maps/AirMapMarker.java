@@ -317,6 +317,7 @@ public class AirMapMarker extends AirMapFeature {
       property,
       typeEvaluator,
       finalPosition);
+    animator.setAutoCancel(true);
     animator.setDuration(duration);
     animator.start();
   }
